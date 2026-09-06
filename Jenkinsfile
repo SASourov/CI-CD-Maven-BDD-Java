@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven-3.9'   // Jenkins Tools এ configure করা Maven এর নাম
-        jdk 'JDK-17'        // Jenkins Tools এ configure করা JDK এর নাম
+        maven 'MyMaven'   // Jenkins Tools এ configure করা Maven এর নাম
+        jdk 'MyJava'        // Jenkins Tools এ configure করা JDK এর নাম
     }
 
     stages {
