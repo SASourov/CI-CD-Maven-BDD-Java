@@ -27,8 +27,16 @@ pipeline {
     }
 
     post {
-        always {
-            junit testResults: 'target/surefire-reports/*.xml', allowEmptyResults: true
+            always {
+                publishHTML(target: [
+                    allowMissing: true,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'Report',
+                    reportFiles: 'report-1.html',
+                    reportName: 'Cucumber HTML Report'
+                ])
+                junit testResults: 'target/surefire-reports/*.xml', allowEmptyResults: true
+            }
         }
     }
-}
