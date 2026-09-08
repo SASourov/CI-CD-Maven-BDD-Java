@@ -23,15 +23,8 @@ jobs:
       - name: Build with Maven
         run: mvn clean compile
 
-      - name: Check feature files exist
-        run: find . -name "*.feature"
-
       - name: Run Tests
         run: mvn test
-
-      - name: List all xml files (debug)
-        if: always()
-        run: find . -name "*.xml" -not -path "*/node_modules/*"
 
       - name: Upload Cucumber Report
         if: always()
@@ -46,11 +39,3 @@ jobs:
         with:
           name: surefire-reports
           path: target/surefire-reports/
-
-      - name: Publish Test Summary
-        if: always()
-        uses: dorny/test-reporter@v1
-        with:
-          name: Cucumber Test Report
-          path: 'target/cucumber-junit-report.xml'
-          reporter: java-junit
