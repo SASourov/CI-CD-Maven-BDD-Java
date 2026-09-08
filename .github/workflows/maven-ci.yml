@@ -45,5 +45,5 @@ jobs:
         uses: dorny/test-reporter@v1
         with:
           name: Cucumber Test Report
-          path: 'target/surefire-reports/TEST-*.xml'
+          path: 'target/cucumber-junit-report.xml'
           reporter: java-junit
