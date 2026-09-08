@@ -23,6 +23,9 @@ jobs:
       - name: Build with Maven
         run: mvn clean compile
 
+      - name: Check feature files exist
+        run: find . -name "*.feature"
+
       - name: Run Tests
         run: mvn test
 
