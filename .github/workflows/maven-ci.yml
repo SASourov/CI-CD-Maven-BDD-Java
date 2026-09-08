@@ -26,9 +26,9 @@ jobs:
       - name: Run Tests
         run: mvn test
 
-      - name: List target directory (debug)
+      - name: List all xml files (debug)
         if: always()
-        run: find target -name "*.xml"
+        run: find . -name "*.xml" -not -path "*/node_modules/*"
 
       - name: Upload Cucumber Report
         if: always()
